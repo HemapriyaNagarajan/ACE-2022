@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	
+	<link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <title>Added User Details</title>
+  </head>
+  
+  <style>
+  	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	  }
+	
+	  #heading {
+		
+		font-family: "Jost", sans-serif;
+		font-size: 30px;
+		letter-spacing: 1px;
+		
+	  }
+	  
+	  .navbar-nav .nav-link {
+		margin: 0 30px;
+	  }
+	  
+	  .form-control {
+		border-radius: 13px;
+		border: 1px solid rgb(2, 123, 255);
+		padding: 20px;
+	}
+	
+	h2 {
+		font-size: 2.5em;
+		font-weight: bold;
+	}
+	
+	.col .btn {
+		border-radius: 10px;
+		padding: 20px;
+		width: 50%;
+		margin: 0 auto;
+	}
+	
+	img {
+		margin-top: -150px;
+		height: 700px;
+		width: 100%;
+	}
+  </style>
+  <body>
+  
+  <!-- navbar design -->
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" id="heading" href="#"> Rekruit </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/addDetails"> Add details </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+ 
+
+	<div class="container">
+		<br/>
+		<br/>
+	 <div th:if=${session.msg}>
+		<h2><div class="alert alert-success" role="alert" th:text="${session.msg}"></h2>
+		</div>
+		<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+	</div> 
+	<br/>
+	<div class="row">
+		<div class="col"></div>
+		<div class="col"> 
+		<a class="btn btn-block btn-success" th:href="@{/viewUser/{id}(id=${session.id})}">View Application</a> 
+		</div>
+		<div class="col"></div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col"></div>
+		<div class="col"> 
+			<a class="btn btn-block btn-secondary" th:href="@{/editUser/{id}(id=${session.id})}">Edit Application</a></div>
+			<div class="col"></div>
+		</div>
+		<br/>
+		<div class="row">
+		<div class="col"></div>
+		<div class="col">
+			<a href="/userDashboard"><button class="btn btn-primary btn-block"> Back Home</button></a>
+		</div><div class="col"></div>
+	</div>
+	<br/>
+	</div>
+
+	<img src="/assets/img/thumbsup.jpg" alt="thumbs_up"/>
+
+	</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
